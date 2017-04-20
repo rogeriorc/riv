@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Default" parent="android:Theme.Light.NoTitleBar" />
+    <style name="AppTheme.Fullscreen" parent="android:Theme.Light.NoTitleBar.Fullscreen" />
+    <style name="AppTheme.DialogWhenLarge" parent="android:Theme.Light.NoTitleBar" />
+</resources>

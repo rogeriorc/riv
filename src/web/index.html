@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta name="viewport" content="user-scalable=yes, initial-scale=1, minimum-scale=0.25, maximum-scale=5.0">    
+	<script src="bower/cloudbridge-core-js/cloudbridge-core.js"></script>
+	<script src="angular.min.js"></script>
+
+<script type="text/javascript">
+    // Funcoes de abertura e fechamento do menu lateral
+    // *Elas podem ser usadas pra disparar acoes ADVPL para a carga de opcoes do Menu
+    function openNav() {
+        document.getElementById("lateralMenu").style.width = "150px";
+        dialog.jsToAdvpl('server_message', 'Menu aberto');
+    }
+    function closeNav() {
+        document.getElementById("lateralMenu").style.width = "0";
+        dialog.jsToAdvpl('server_message', 'Menu fechado');
+    }
+</script>
+
+<script>
+var app = angular.module("myProj1", []);
+
+app.controller('myCtrl01', function($scope) {
+    $scope.partSelected= "";
+    $scope.initialTop = 200;
+
+    $scope.parts = [
+        {part:'paralama-dianteiro-esquerdo', left: 200, top: $scope.initialTop},
+        {part:'roda-dianteira-esquerda', left: 194, top: $scope.initialTop+110},
+        {part:'porta-esquerda-dianteira', left: 400, top: $scope.initialTop},
+        {part:'porta-esquerda-traseira', left: 600, top: $scope.initialTop},
+    ];     
+
+    $scope.selectPart = function (str) {
+        $scope.partSelected = str;
+        dialog.jsToAdvpl("selectPart", str);   
+    }
+
+});
+</script>
+</head>   
+<body style="font-family: consolas;">
+
+<div ng-app="myProj1" ng-controller="myCtrl01">
+
+    <div style="border: 1px gray solid; padding: 10px;">
+        Pe&ccedil;a Selecionada: {{partSelected}}</br>
+    </div>
+
+    <img src="carro1.gif">
+
+    <button ng-click="selectPart(x.part)" ng-repeat="x in parts" 
+       style="max-width: 50px; position: absolute; left: {{x.left}}; top: {{x.top}}; 
+              min-width: 50px; min-height: 50px;
+              color: red; border: 1px solid red; background-color: transparent;">
+       	&#9679;</button>    
+    </body>

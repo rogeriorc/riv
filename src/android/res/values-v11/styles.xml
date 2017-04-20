@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Default" parent="android:Theme.Holo.Light.NoActionBar" />
+    <style name="AppTheme.Fullscreen" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen" />
+    <style name="AppTheme.DialogWhenLarge" parent="android:Theme.Holo.Light.DialogWhenLarge" />
+</resources>
